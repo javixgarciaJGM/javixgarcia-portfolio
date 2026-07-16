@@ -220,6 +220,179 @@ section {
 }
 
 /* ==========================================================================
+   Proyectos
+   ========================================================================== */
+.projects {
+  background-color: var(--color-bg);
+}
+
+.projects__content {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.project-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(30, 28, 26, 0.06);
+}
+
+.project-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  cursor: pointer;
+}
+
+.project-card__header:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+}
+
+.project-card__heading {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.project-card__number {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.project-card__title {
+  flex: 1;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.project-card__chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+
+.project-card__chevron::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--color-text-secondary);
+  border-bottom: 2px solid var(--color-text-secondary);
+  transform: rotate(45deg);
+  transition: transform 0.25s ease;
+}
+
+.project-card.is-open .project-card__chevron::before {
+  transform: rotate(-135deg);
+  top: 8px;
+}
+
+.project-card__summary {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.project-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.project-card__tags li {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+}
+
+.project-card__metric {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.project-card__metric-label {
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.project-card__metric-label::after {
+  content: ":";
+}
+
+.project-card__detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.project-card.is-open .project-card__detail {
+  grid-template-rows: 1fr;
+}
+
+.project-card__detail-inner {
+  overflow: hidden;
+}
+
+.project-card__detail-content {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.project-card__detail-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: var(--space-sm);
+  margin-bottom: 0.35rem;
+}
+
+.project-card__detail-content h4:first-child {
+  margin-top: var(--space-sm);
+}
+
+.project-card__detail-content p {
+  color: var(--color-text-secondary);
+  font-size: 0.98rem;
+}
+
+.project-card__detail-content a {
+  color: var(--color-accent);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.project-card__detail-content a:hover {
+  color: var(--color-accent-hover);
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 @media (max-width: 640px) {
@@ -246,5 +419,17 @@ section {
   .hero__ctas {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .project-card__header {
+    padding: var(--space-sm);
+  }
+
+  .project-card__title {
+    font-size: 1.05rem;
+  }
+
+  .project-card__detail-content {
+    padding: var(--space-xs) var(--space-sm) var(--space-sm);
   }
 }

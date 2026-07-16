@@ -42,7 +42,144 @@
       </div>
     </section>
 
+    <section id="proyectos" class="projects">
+      <div class="projects__content">
+        <h2 class="section-title">Proyectos</h2>
+
+        <div class="project-list">
+
+          <article class="project-card" data-project="1">
+            <div class="project-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-1" id="toggle-1">
+              <div class="project-card__heading">
+                <span class="project-card__number">01</span>
+                <h3 class="project-card__title">Base de datos automatizada para centro de estética</h3>
+                <span class="project-card__chevron" aria-hidden="true"></span>
+              </div>
+              <p class="project-card__summary">Chat automatizado en n8n conectado a Google Sheets para gestionar de forma inteligente 130+ registros de clientas, sustituyendo el mantenimiento manual por una interfaz conversacional con detección automática de duplicados.</p>
+              <ul class="project-card__tags">
+                <li>n8n</li>
+                <li>Telegram</li>
+                <li>Google Sheets</li>
+                <li>Google Cloud Console</li>
+              </ul>
+              <p class="project-card__metric"><span class="project-card__metric-label">Métrica destacada</span>De 4-5 min a 1-2 min por actualización de registro</p>
+            </div>
+            <div class="project-card__detail" id="detail-1" role="region" aria-labelledby="toggle-1">
+              <div class="project-card__detail-inner">
+                <div class="project-card__detail-content">
+                  <h4>Problema</h4>
+                  <p>Base de datos de clientas mantenida manualmente, sin formato uniforme — duplicados, inconsistencias y actualizaciones que no se hacían por falta de tiempo.</p>
+                  <h4>Solución</h4>
+                  <p>Flujo en n8n que conecta Telegram con Google Sheets. El sistema interpreta el mensaje, identifica la acción (alta, consulta, edición, baja) y la ejecuta, con aviso automático si detecta que la clienta ya existe.</p>
+                  <h4>Mi rol</h4>
+                  <p>Análisis de la necesidad con la propietaria, diseño del flujo, desarrollo y pruebas.</p>
+                  <h4>Impacto</h4>
+                  <p>De 160 registros con ~30 duplicados/nulos a 130 registros limpios y estructurados. Alta de nueva clienta reducida de 5-10 min a 2-3 min.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="2">
+            <div class="project-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-2" id="toggle-2">
+              <div class="project-card__heading">
+                <span class="project-card__number">02</span>
+                <h3 class="project-card__title">Asistente de gestión de citas por WhatsApp</h3>
+                <span class="project-card__chevron" aria-hidden="true"></span>
+              </div>
+              <p class="project-card__summary">Asistente con IA que opera 24/7 vía WhatsApp: interpreta la consulta del cliente, valida disponibilidad en Google Calendar y gestiona citas sin intervención humana, manteniéndose siempre dentro de su ámbito definido.</p>
+              <ul class="project-card__tags">
+                <li>n8n</li>
+                <li>WhatsApp API (Meta)</li>
+                <li>Google Calendar</li>
+                <li>OpenAI Platform</li>
+              </ul>
+              <p class="project-card__metric"><span class="project-card__metric-label">Métrica destacada</span>20-30 min diarios de gestión manual eliminados (negocios con 20-25 citas/semana)</p>
+            </div>
+            <div class="project-card__detail" id="detail-2" role="region" aria-labelledby="toggle-2">
+              <div class="project-card__detail-inner">
+                <div class="project-card__detail-content">
+                  <h4>Problema</h4>
+                  <p>Negocios de servicios pierden tiempo no facturable gestionando citas, consultas repetitivas y recordatorios manualmente.</p>
+                  <h4>Solución</h4>
+                  <p>El asistente recibe el mensaje, interpreta la intención con OpenAI, y ejecuta la acción sobre Google Calendar (crear, modificar, consultar, eliminar) validando disponibilidad y evitando solapes. Fuera de su alcance, redirige al cliente al contacto directo con el negocio.</p>
+                  <h4>Mi rol</h4>
+                  <p>Diseño de la lógica conversacional, integración entre herramientas y pruebas de funcionamiento.</p>
+                  <h4>Impacto</h4>
+                  <p>Respuesta inmediata 24/7, reducción de errores de agenda por solapes u olvidos, y experiencia de atención más ágil sin depender del horario del negocio.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="3">
+            <div class="project-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-3" id="toggle-3">
+              <div class="project-card__heading">
+                <span class="project-card__number">03</span>
+                <h3 class="project-card__title">Sistema de expedientes para taller mecánico</h3>
+                <span class="project-card__chevron" aria-hidden="true"></span>
+              </div>
+              <p class="project-card__summary">Sistema implantado en un taller real que digitaliza la apertura de expedientes por formulario, clasifica automáticamente el tipo de avería y da visibilidad total del estado de cada vehículo al equipo.</p>
+              <ul class="project-card__tags">
+                <li>n8n</li>
+                <li>Google Forms</li>
+                <li>Google Sheets</li>
+              </ul>
+              <p class="project-card__metric"><span class="project-card__metric-label">Métrica destacada</span>De 10-15 min a localización inmediata de información</p>
+            </div>
+            <div class="project-card__detail" id="detail-3" role="region" aria-labelledby="toggle-3">
+              <div class="project-card__detail-inner">
+                <div class="project-card__detail-content">
+                  <h4>Problema</h4>
+                  <p>Registro en papel, sin estructura ni trazabilidad — retrasos, información perdida y dependencia de "preguntar al compañero" para saber el estado de una reparación.</p>
+                  <h4>Solución</h4>
+                  <p>Formulario digital con categorías predefinidas (avería mecánica, mantenimiento, chapa/pintura, avería eléctrica). n8n clasifica y registra automáticamente en Sheets; los mecánicos actualizan el estado en tiempo real.</p>
+                  <h4>Mi rol</h4>
+                  <p>Análisis con los responsables del taller, diseño e implantación del sistema, y formación inicial a dueños y mecánicos.</p>
+                  <h4>Impacto</h4>
+                  <p>Recepción de vehículo de 20-30 min a registro guiado. Tiempos de reparación reducidos 1-2 días por vehículo. Capacidad para atender 1-3 vehículos adicionales/semana. <strong>Proyecto en producción activa.</strong></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="4">
+            <div class="project-card__header" role="button" tabindex="0" aria-expanded="false" aria-controls="detail-4" id="toggle-4">
+              <div class="project-card__heading">
+                <span class="project-card__number">04</span>
+                <h3 class="project-card__title">Análisis de riesgo financiero con SQL</h3>
+                <span class="project-card__chevron" aria-hidden="true"></span>
+              </div>
+              <p class="project-card__summary">Modelo relacional en SQL sobre facturación, deuda y cashflow de una empresa simulada, con vistas analíticas y KPIs orientados a detectar riesgo de impago y patrones financieros — con dashboard interactivo publicado.</p>
+              <ul class="project-card__tags">
+                <li>SQL</li>
+                <li>GitHub</li>
+                <li>Looker Studio</li>
+              </ul>
+              <p class="project-card__metric"><span class="project-card__metric-label">Métrica destacada</span>Dashboard interactivo con KPIs financieros en tiempo real</p>
+            </div>
+            <div class="project-card__detail" id="detail-4" role="region" aria-labelledby="toggle-4">
+              <div class="project-card__detail-inner">
+                <div class="project-card__detail-content">
+                  <h4>Problema/objetivo</h4>
+                  <p>Simular un entorno empresarial real para estudiar la diferencia entre facturación e ingresos reales, y detectar riesgo de cobro por cliente.</p>
+                  <h4>Solución</h4>
+                  <p>Esquema relacional, carga de datos, vistas analíticas y KPIs sobre facturación, deuda vencida, concentración de clientes y evolución del cashflow.</p>
+                  <h4>Mi rol</h4>
+                  <p>Diseño de la lógica del caso, construcción de las vistas SQL e interpretación de resultados desde negocio.</p>
+                  <h4>Enlaces</h4>
+                  <p><a href="https://datastudio.google.com/s/pVcntIJ9TmI" target="_blank" rel="noopener">Dashboard en Looker Studio</a> · <a href="https://github.com/javixgarciaJGM/financial-risk-analysis-sql" target="_blank" rel="noopener">Código en GitHub</a></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
+  <script src="js/main.js" defer></script>
 </body>
 </html>
