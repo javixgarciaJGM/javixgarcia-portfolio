@@ -473,13 +473,13 @@ section {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-.contact__item:not(.contact__item--disabled):hover {
+.contact__item:hover {
   border-color: var(--color-accent);
   box-shadow: 0 8px 24px rgba(30, 28, 26, 0.06);
   transform: translateY(-2px);
 }
 
-.contact__item:not(.contact__item--disabled):hover .contact__value {
+.contact__item:hover .contact__value {
   color: var(--color-accent);
 }
 
@@ -496,15 +496,6 @@ section {
   font-weight: 600;
   color: var(--color-text);
   transition: color 0.2s ease;
-}
-
-.contact__item--disabled {
-  border-style: dashed;
-  cursor: not-allowed;
-}
-
-.contact__item--disabled .contact__value {
-  color: var(--color-text-secondary);
 }
 
 /* ==========================================================================
