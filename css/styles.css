@@ -643,11 +643,19 @@ section {
 
 .contact__item:hover {
   border-color: var(--color-accent);
-  box-shadow: 0 8px 24px rgba(30, 28, 26, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(30, 28, 26, 0.08);
+  transform: translateY(-4px);
 }
 
-.contact__item:hover .contact__value {
+/* Especificidad reforzada: .reveal.reveal--ready.is-visible fija su propio
+   "transform" con 3 clases, así que el hover necesita más peso para ganar
+   una vez la tarjeta ya se ha revelado al hacer scroll. */
+.contact__item.reveal.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+.contact__item:hover .contact__value,
+.contact__item:hover .contact__label {
   color: var(--color-accent);
 }
 
@@ -657,6 +665,7 @@ section {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
+  transition: color 0.2s ease;
 }
 
 .contact__value {
