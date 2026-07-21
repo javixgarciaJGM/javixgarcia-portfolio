@@ -238,6 +238,39 @@ section {
   flex-wrap: wrap;
 }
 
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(48px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero__title,
+.hero__subtitle,
+.hero__ctas {
+  animation: hero-enter 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.hero__subtitle {
+  animation-delay: 0.12s;
+}
+
+.hero__ctas {
+  animation-delay: 0.24s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__title,
+  .hero__subtitle,
+  .hero__ctas {
+    animation: none;
+  }
+}
+
 /* ==========================================================================
    Sobre mí
    ========================================================================== */
@@ -748,5 +781,16 @@ section {
 
   .reveal.reveal--ready {
     transform: translateY(32px) scale(0.96);
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(32px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 }
