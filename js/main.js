@@ -61,4 +61,85 @@
       });
     });
   }
+
+  var typewriterParagraphs = document.querySelectorAll(".about__content p");
+  var prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (
+    "IntersectionObserver" in window &&
+    typewriterParagraphs.length &&
+    !prefersReducedMotion
+  ) {
+    var CHAR_DELAY = 10;
+    var PARAGRAPH_PAUSE = 250;
+    var fullTexts = [];
+    var typewriterStarted = false;
+
+    typewriterParagraphs.forEach(function (p, index) {
+      fullTexts[index] = p.textContent;
+      p.textContent = "";
+    });
+
+    function typeParagraphs() {
+      if (typewriterStarted) {
+        return;
+      }
+      typewriterStarted = true;
+
+      var pIndex = 0;
+      var charIndex = 0;
+
+      function typeNext() {
+        if (pIndex >= typewriterParagraphs.length) {
+          return;
+        }
+
+        var paragraph = typewriterParagraphs[pIndex];
+        var text = fullTexts[pIndex];
+
+        paragraph.classList.add("is-typing");
+        paragraph.textContent = text.slice(0, charIndex);
+        charIndex++;
+
+        if (charIndex <= text.length) {
+          setTimeout(typeNext, CHAR_DELAY);
+        } else {
+          paragraph.classList.remove("is-typing");
+          pIndex++;
+          charIndex = 0;
+          setTimeout(typeNext, PARAGRAPH_PAUSE);
+        }
+      }
+
+      typeNext();
+    }
+
+    var aboutContent = document.querySelector(".about__content");
+    var typeObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            typeParagraphs();
+            typeObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    typeObserver.observe(aboutContent);
+
+    window.addEventListener("load", function () {
+      if (typewriterStarted) {
+        return;
+      }
+      var rect = aboutContent.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        typeParagraphs();
+        typeObserver.unobserve(aboutContent);
+      }
+    });
+  }
 })();

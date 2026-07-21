@@ -279,6 +279,29 @@ section {
   margin-bottom: 0;
 }
 
+.about__content p.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 2px;
+  background-color: var(--color-accent);
+  vertical-align: text-bottom;
+  animation: typing-cursor-blink 0.8s step-start infinite;
+}
+
+@keyframes typing-cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__content p.is-typing::after {
+    animation: none;
+  }
+}
+
 /* ==========================================================================
    Proyectos
    ========================================================================== */
