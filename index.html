@@ -75,6 +75,22 @@
                   <p>Análisis de la necesidad con la propietaria, diseño del flujo, desarrollo y pruebas.</p>
                   <h4>Impacto</h4>
                   <p>De 160 registros con ~30 duplicados/nulos a 130 registros limpios y estructurados. Alta de nueva clienta reducida de 5-10 min a 2-3 min.</p>
+
+                  <figure class="project-card__figure">
+                    <button
+                      class="project-card__image-trigger"
+                      type="button"
+                      data-lightbox-src="assets/proyecto-1-flujo-n8n.png"
+                      data-lightbox-alt="Diagrama del flujo de trabajo en n8n del proyecto de estética, con el nodo de entrada por Telegram y un switch que reparte el mensaje entre las ramas VER, EDITAR, NUEVO, ELIMINAR y AYUDA, cada una con sus nodos de Code, Google Sheets y envío de respuesta por Telegram"
+                    >
+                      <img
+                        src="assets/proyecto-1-flujo-n8n.png"
+                        alt="Diagrama del flujo de trabajo en n8n del proyecto de estética, con el nodo de entrada por Telegram y un switch que reparte el mensaje entre las ramas VER, EDITAR, NUEVO, ELIMINAR y AYUDA, cada una con sus nodos de Code, Google Sheets y envío de respuesta por Telegram"
+                        loading="lazy"
+                      >
+                    </button>
+                    <figcaption>Flujo completo del sistema en n8n — clic para ampliar</figcaption>
+                  </figure>
                 </div>
               </div>
             </div>
@@ -262,6 +278,11 @@
   <footer class="site-footer">
     <p>&copy; 2026 Javier García Monrabal — Business Analyst · Automatización de procesos e IA</p>
   </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada">&times;</button>
+    <img class="lightbox__image" src="" alt="">
+  </div>
 
   <script src="js/main.js" defer></script>
 </body>
