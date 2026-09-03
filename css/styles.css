@@ -68,6 +68,18 @@ ul {
   list-style: none;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 section {
   padding: var(--space-xl) var(--space-md);
 }
@@ -786,6 +798,74 @@ section {
   margin: 0 auto;
 }
 
+.contact__featured {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 10px 28px rgba(30, 28, 26, 0.08);
+  transform: translateY(-4px);
+}
+
+/* Ver nota de especificidad junto a .contact__item.reveal.is-visible:hover */
+.contact-card.reveal.is-visible:hover {
+  transform: translateY(-4px);
+}
+
+.contact-card__icon {
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(30, 28, 26, 0.10);
+}
+
+.contact-card__icon--linkedin {
+  background-color: #0a66c2;
+}
+
+.contact-card__icon--github {
+  background-color: #181717;
+}
+
+.contact-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact-card__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.contact-card__tagline {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  max-width: 34ch;
+}
+
 .contact__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -870,6 +950,7 @@ section {
 
 .project-list .reveal:nth-child(2),
 .stack__grid .reveal:nth-child(2),
+.contact__featured .reveal:nth-child(2),
 .contact__list .reveal:nth-child(2) {
   transition-delay: 0.1s;
 }

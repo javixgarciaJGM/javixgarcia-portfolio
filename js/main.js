@@ -187,4 +187,34 @@
       }
     });
   }
+
+  var githubCard = document.getElementById("github-card");
+
+  if (githubCard) {
+    var githubUser = githubCard.getAttribute("data-github-user");
+    var githubName = document.getElementById("github-name");
+    var githubBio = document.getElementById("github-bio");
+
+    fetch("https://api.github.com/users/" + githubUser)
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error("GitHub API respondió con error");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        // Solo se sustituye el contenido estático de respaldo si la API
+        // devuelve un valor válido para ese campo concreto.
+        if (data.name) {
+          githubName.textContent = data.name;
+        }
+        if (data.bio) {
+          githubBio.textContent = data.bio;
+        }
+      })
+      .catch(function () {
+        // La tarjeta ya muestra el respaldo estático embebido en el HTML,
+        // así que no hace falta ninguna acción si la API falla.
+      });
+  }
 })();
